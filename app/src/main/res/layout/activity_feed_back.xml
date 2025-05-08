@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#5b6c7b"
+    tools:context="com.example.project.FeedBack">
+
+    <TextView
+        android:id="@+id/feedbackHeader"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#16a3d9"
+        android:text="وصول\nتواصل معنا"
+        android:textAlignment="center"
+        android:textColor="#5D4037"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@android:color/transparent"
+        android:text=" الاسم"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:hint="الاسم الكامل"
+        android:inputType="textPersonName"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@android:color/transparent"
+        android:text=" العنوان"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:hint="عنوان المشروع"
+        android:inputType="text"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@android:color/transparent"
+        android:text=" الوصف"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:gravity="start|top"
+        android:hint="وصف المشروع"
+        android:inputType="textMultiLine"
+        android:textSize="20sp" />
+
+    <Button
+        android:textColor="@color/white"
+        android:id="@+id/send"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ripple"
+        android:onClick="submitForm"
+        android:text="إرسال" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="أو"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/callUs"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/ripple"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:paddingVertical="12dp"
+        android:onClick="callUs"
+        android:text="إتصل بنا"
+        android:textColor="@color/white"
+        android:contentDescription="زر الاتصال بنا" />
+
+
+</LinearLayout>
