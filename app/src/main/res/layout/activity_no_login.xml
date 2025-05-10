@@ -22,7 +22,7 @@
         android:layout_alignRight="@id/imageView"
         android:layout_marginTop="25dp"
         android:layout_marginRight="10dp"
-        android:contentDescription="تغيير اللغة,Change Language"
+        android:contentDescription="Đổi ngôn ngữ,Change Language"
         android:onClick="changeLanguage"
         app:srcCompat="@drawable/language"
         tools:ignore="TouchTargetSizeCheck" />
@@ -49,8 +49,8 @@
                 android:background="#f3992b"
                 android:drawableLeft="@drawable/map"
                 android:onClick="map"
-                android:text="  الخرائط"
-                android:textAlignment="textStart"
+                android:text="MAPS  "
+                android:textAlignment="textEnd"
                 android:textColor="#455A64"
                 android:textSize="20dp" />
 
@@ -62,8 +62,8 @@
                 android:background="#3da99a"
                 android:drawableLeft="@drawable/communicate"
                 android:onClick="communicate"
-                android:text="  تواصل"
-                android:textAlignment="textStart"
+                android:text="COMMUNICATION   "
+                android:textAlignment="textEnd"
                 android:textColor="#0D47A1"
                 android:textSize="20dp" />
 
@@ -75,8 +75,8 @@
                 android:background="#9c4ad3"
                 android:drawableLeft="@drawable/video_call"
                 android:onClick="assistanceVideoCall"
-                android:text="  مكالمة طارئة"
-                android:textAlignment="textStart"
+                android:text="ASSISTANCE   "
+                android:textAlignment="textEnd"
                 android:textColor="#FFFFFF"
                 android:textSize="20dp" />
 
@@ -90,8 +90,8 @@
                 android:background="#2ad3bc"
                 android:drawableLeft="@drawable/contact"
                 android:onClick="feedbackForm"
-                android:text="  تواصل معنا"
-                android:textAlignment="textStart"
+                android:text="FEEDBACK  "
+                android:textAlignment="textEnd"
                 android:textColor="#616161"
                 android:textSize="20dp" />
         </LinearLayout>

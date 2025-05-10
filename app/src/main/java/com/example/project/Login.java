@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
     private EditText passwordEditText;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "Vn";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +80,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this,"Email is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this,"البريد الالكتروني فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Email đang trống", Toast.LENGTH_SHORT).show();
             return;
         }
         if(passwordEditText.getText().toString().trim().length() <6){
@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this,"Password is less then 6", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this,"كلمة المرور اقل من 6", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Mật khẩu ít hơn 6 kí tự", Toast.LENGTH_SHORT).show();
             return;
         }
         // Check if we can log in the user
@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"Email or password is wrong", Toast.LENGTH_SHORT).show();
                             }
                             else
-                                Toast.makeText(getApplicationContext(),"البريد الإلكتروني او كلمة المرور خطأ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"Tên đăng nhập hoặc mật khẩu chưa chính xác", Toast.LENGTH_SHORT).show();
                         }
                         // ...
                     }
@@ -142,10 +142,10 @@ public class Login extends AppCompatActivity {
     public void saveData(String currentLanguage) {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(currentLanguage.equals("Ar"))
+        if(currentLanguage.equals("Vn"))
             editor.putString(LANGUAGE,"En");
         else
-            editor.putString(LANGUAGE,"Ar");
+            editor.putString(LANGUAGE,"Vn");
         editor.apply();
     }
     public String loadData() {

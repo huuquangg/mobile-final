@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#16a3d9"
+    android:background="#1388DC"
     tools:context="com.example.project.SignUp">
 
     <ImageView
@@ -21,7 +21,7 @@
         android:id="@+id/label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="البريد الإلكتروني"
+        android:text="E-mail"
         android:labelFor="@id/emailEditText"
         android:textColor="#000000"
         android:textSize="16sp" />
@@ -33,7 +33,7 @@
         android:layout_marginBottom="30dp"
         android:background="#FFFFFF"
         android:drawableRight="@drawable/person"
-        android:hint="البريد الإلكتروني"
+        android:hint="  Email"
         android:inputType="textEmailAddress"
         android:textColorHint="#5caed4"
         android:textSize="15sp" />
@@ -43,7 +43,7 @@
         android:id="@+id/label_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="كلمة المرور"
+        android:text="Password"
         android:labelFor="@id/passwordEditText"
         android:textColor="#000000"
         android:textSize="16sp" />
@@ -55,9 +55,9 @@
         android:layout_marginBottom="30dp"
         android:background="#FFFFFF"
         android:drawableRight="@drawable/lock"
-        android:hint="كلمة المرور"
+        android:hint=" Password"
         android:inputType="textPassword"
-        android:textAlignment="textEnd"
+        android:textAlignment="textStart"
         android:textColorHint="#5caed4"
         android:textSize="15sp" />
 
@@ -66,7 +66,7 @@
         android:id="@+id/label_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="الاسم"
+        android:text="Name"
         android:labelFor="@id/name"
         android:textColor="#000000"
         android:textSize="16sp" />
@@ -78,7 +78,7 @@
         android:layout_marginBottom="30dp"
         android:background="#FFFFFF"
         android:drawableRight="@drawable/id"
-        android:hint=" الاسم"
+        android:hint=" Name"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColorHint="#5caed4"
@@ -102,7 +102,7 @@
             android:id="@+id/label_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="رقم الجوال"
+            android:text="Telephone"
             android:labelFor="@id/number"
             android:textColor="#000000"
             android:textSize="16sp" />
@@ -114,7 +114,7 @@
             android:layout_marginBottom="30dp"
             android:background="#FFFFFF"
             android:drawableRight="@drawable/phone"
-            android:hint="رقم الجوال"
+            android:hint="Mobile number"
             android:inputType="phone"
             android:textAlignment="textEnd"
             android:textColorHint="#5caed4"
@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         android:background="#0b5e83"
         android:onClick="signUp"
-        android:text="التسجيل"
+        android:text="Registration"
         android:textColor="@android:color/white" />
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#16a3d9"
+    android:background="#1388DC"
     tools:context="com.example.project.forgot">
 
     <ImageView
@@ -22,12 +22,12 @@
         android:layout_height="48dp"
         android:layout_marginBottom="30dp"
         android:background="#FFFFFF"
-        android:drawableRight="@drawable/person"
-        android:hint="البريد الإلكتروني"
+        android:drawableEnd="@drawable/person"
+        android:hint="  E-mail"
         android:inputType="text"
-        android:textColorHint="#5caed4"
+        android:textColorHint="#1D1616"
         android:textSize="15dp"
-        tools:ignore="TextSizeCheck" />
+        tools:ignore="HardcodedText,SpUsage,TextFields,TextSizeCheck" />
 
     <Button
         android:id="@+id/forgot"
@@ -35,7 +35,8 @@
         android:layout_height="wrap_content"
         android:background="#1284b8"
         android:onClick="reset"
-        android:text="استعادة كلمة المرور"
-        android:textColor="#000000" />
+        android:text="Recover your password"
+        android:textColor="#ffffff"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

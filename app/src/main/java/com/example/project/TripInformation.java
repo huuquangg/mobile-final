@@ -72,6 +72,7 @@ public class TripInformation extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,11 +82,11 @@ public class TripInformation extends AppCompatActivity {
                 getSupportActionBar().setTitle("Trip Information");
         }
         else {
-                getSupportActionBar().setTitle("معلومات الرحلة");
+                getSupportActionBar().setTitle("Trip Information");
                 Button carBtn = findViewById(R.id.CarBtn);
                 Button WalkBtn = findViewById(R.id.WalkBtn);
-                carBtn.setText("سيارة");
-                WalkBtn.setText("سيرا");
+                carBtn.setText("Car");
+                WalkBtn.setText("Walk");
         }
 
 
@@ -103,9 +104,6 @@ public class TripInformation extends AppCompatActivity {
         direction = getIntent().getStringExtra("Direction");
         lat = getIntent().getDoubleExtra("Latitude" , -1);
         lng = getIntent().getDoubleExtra("Longitude", -1);
-
-
-
 
 
         // setting the text views
@@ -138,25 +136,26 @@ public class TripInformation extends AppCompatActivity {
 
 
                     if (loadData().equals("Ar")){
-                            if (direction.equals("North"))
-                                direction = "الشمال";
-                            else if (direction.equals("Northeast"))
-                                direction = "الشمال الشرقي";
-                            else if (direction.equals("East"))
-                                direction = "الشرق";
-                            else if (direction.equals("Southeast"))
-                                direction = "الجنوب الشرقي";
-                            else if (direction.equals("South"))
-                                direction = "الجنوب";
-                            else if (direction.equals("Southwest"))
-                                direction = "الجنوب الغربي";
-                            else if (direction.equals("West"))
-                                direction = "الغرب";
-                            else if (direction.equals("Northwest"))
-                                direction = "الشمال الغربي";
+                        if (direction.equals("North"))
+                            direction = "North";
+                        else if (direction.equals("Northeast"))
+                            direction = "Northeast";
+                        else if (direction.equals("East"))
+                            direction = "East";
+                        else if (direction.equals("Southeast"))
+                            direction = "Southeast";
+                        else if (direction.equals("South"))
+                            direction = "South";
+                        else if (direction.equals("Southwest"))
+                            direction = "Southwest";
+                        else if (direction.equals("West"))
+                            direction = "West";
+                        else if (direction.equals("Northwest"))
+                            direction = "Northwest";
 
 
-                            distanceText.setText(distance + " متر الى " + direction);
+
+                            distanceText.setText(distance + "meters to the  " + direction);
 
                 }
                 else {
@@ -392,76 +391,54 @@ public class TripInformation extends AppCompatActivity {
 
 
     // turns text to speech: Case 0: when activity is initiated it utters name, type, distance, direction. Case 1: repeating only distance and direction every amount of time
-    public void speak(int Case){
+    public void speak(int Case) {
         trigger = false;
-        if (loadData().equals("Ar")) {
-                                    if (direction.equals("North"))
-                                        direction = "الشمال";
-                                    else if (direction.equals("Northeast"))
-                                        direction = "الشمال الشرقي";
-                                    else if (direction.equals("East"))
-                                        direction = "الشرق";
-                                    else if (direction.equals("Southeast"))
-                                        direction = "الجنوب الشرقي";
-                                    else if (direction.equals("South"))
-                                        direction = "الجنوب";
-                                    else if (direction.equals("Southwest"))
-                                        direction = "الجنوب الغربي";
-                                    else if (direction.equals("West"))
-                                        direction = "الغرب";
-                                    else if (direction.equals("Northwest"))
-                                        direction = "الشمال الغربي";
-                                    ConnectivityManager cm = (ConnectivityManager) TripInformation.this.getSystemService(Context.CONNECTIVITY_SERVICE);
-                                    NetworkInfo netInfo = cm.getActiveNetworkInfo();
-                                    boolean isOnline = netInfo != null && netInfo.isConnectedOrConnecting();
-                                    if(Case ==0){
-                                        sp = name + " " + type  + distance + " متر الى " + direction;
 
-                                        if (isOnline) {
-                                            new SpeechText().execute();
-                                        } else {
-                                            Log.e("TAG" , "Arabic text to Speech is not Working");
-                                        }
-                                    } // case 0
-                                        else if (Case ==1){
-                                    distanceText.setText(distance + " متر الى " + direction);
+        if (loadData().equals("En")) { // English Language
+            // Make sure direction remains in English (no translation needed)
+            ConnectivityManager cm = (ConnectivityManager) TripInformation.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+            boolean isOnline = netInfo != null && netInfo.isConnectedOrConnecting();
 
-                                    // say name in arabic
+            if (Case == 0) {
+                sp = name + " " + type + " " + distance + " meters to the " + direction;
+                if (isOnline) {
+                    new SpeechText().execute(); // English TTS
+                } else {
+                    Log.e("TAG", "English text to Speech is not working");
+                }
 
-                                    sp = distance + " متر الى " + direction;
+            } else if (Case == 1) {
+                distanceText.setText(distance + " meters to the " + direction);
+                sp = distance + " meters to the " + direction;
+                if (isOnline) {
+                    new SpeechText().execute(); // English TTS
+                } else {
+                    Log.e("TAG", "Text to Speech is not working");
+                }
+            }
 
-                                    if (isOnline) {
-                                        new SpeechText().execute();
-                                    } else {
-                                        Log.e("TAG" , "Arabic text to Speech is not Working");
+        } else { // If not English (assume Arabic or fallback)
+            ConnectivityManager cm = (ConnectivityManager) TripInformation.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+            boolean isOnline = netInfo != null && netInfo.isConnectedOrConnecting();
 
-                                    }
+            if (Case == 0) {
+                trigger = true;
+                sp = name + " " + type;
+                if (isOnline) {
+                    new SpeechText().execute();
+                } else {
+                    Log.e("TAG", "Text to Speech is not working");
+                }
 
-
-                                                         }
-
-        } // Arabic Language
-        else {
-                                        if (Case ==0){
-                                            ConnectivityManager cm = (ConnectivityManager) TripInformation.this.getSystemService(Context.CONNECTIVITY_SERVICE);
-                                            NetworkInfo netInfo = cm.getActiveNetworkInfo();
-                                            boolean isOnline = netInfo != null && netInfo.isConnectedOrConnecting();
-                                            trigger = true;
-                                            sp = name + " " + type;
-                                            if (isOnline) {
-                                                new SpeechText().execute();
-                                            } else {
-                                                Log.e("TAG" , "Arabic text to Speech is not Working");
-                                            }
-
-                                        }
-
-                                        else if (Case == 1) {
-                                            distanceText.setText(distance + " meters to the " + direction);
-                                            mTTS.speak(distance + " meters to the " + direction, TextToSpeech.QUEUE_FLUSH, null); //english
-                                        }
-                                    }
+            } else if (Case == 1) {
+                distanceText.setText(distance + " meters to the " + direction);
+                mTTS.speak(distance + " meters to the " + direction, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        }
     }
+
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");

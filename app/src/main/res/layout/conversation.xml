@@ -10,7 +10,7 @@
     tools:context="com.example.project.Conversation">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:contentDescription="المحادثة"
+        android:contentDescription="Conversation"
         android:id="@+id/rec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -56,7 +56,7 @@
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
                     android:background="@drawable/background"
-                    android:hint="@string/hint"
+                    android:hint="Input your text"
                     android:padding="5dp"
                     android:textColorHint="@color/colorBlack" />
 
@@ -80,7 +80,7 @@
                 android:layout_centerInParent="true"
                 android:layout_margin="5dp"
                 android:background="@null"
-                android:contentDescription=" مايكروفون\microphone"
+                android:contentDescription=" microphone\microphone"
 
                 android:fadeScrollbars="true"
                 android:scaleType="fitCenter"

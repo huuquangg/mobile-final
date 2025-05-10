@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class forgot extends AppCompatActivity {
     private EditText emailEditText;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "En";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class forgot extends AppCompatActivity {
                 Toast.makeText(this,"Email is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "البريد الإلكتروني فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Email đang trống", Toast.LENGTH_SHORT).show();
             return;
         }
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -59,7 +59,7 @@ public class forgot extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"Reset password has been sent", Toast.LENGTH_SHORT).show();
                             }
                             else
-                                Toast.makeText(getApplicationContext(), "تم إرسال رابط إعادة تعيين كلمة المرور", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Yêu cầu cấp lại mật khẩu đã được gửi", Toast.LENGTH_SHORT).show();
                             onBackPressed();
                         }
                         else {
@@ -67,14 +67,14 @@ public class forgot extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"Email is wrong", Toast.LENGTH_SHORT).show();
                             }
                             else
-                                Toast.makeText(getApplicationContext(), "البريد الإلكتروني خطأ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Email không hợp lệ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "En");
         return currentLanguage;
 
     }

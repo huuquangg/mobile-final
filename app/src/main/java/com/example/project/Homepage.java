@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
+
+import com.google.firebase.auth.FirebaseUser;
 import com.mobile.app.R;
 
 import android.content.Intent;
@@ -43,7 +45,7 @@ public class Homepage extends AppCompatActivity {
     private User user;
     FusedLocationProviderClient fusedLocationProviderClient;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "En";
     private long pressedTime;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +69,12 @@ public class Homepage extends AppCompatActivity {
             button4.setAllCaps(false);
             button5.setAllCaps(false);
             button6.setAllCaps(false);
-            button1.setText("  Personal Profile");
-            button2.setText("  Maps");
-            button3.setText("  Dialog");
-            button4.setText("  Emergency call");
-            button5.setText("  Calendar");
-            button6.setText("  Contact Us");
+            button1.setText("  PROFILE");
+            button2.setText("  MAPS");
+            button3.setText("  COMMUNICATION");
+            button4.setText("  EMERGENCY CALL");
+            button5.setText("  CALENDER");
+            button6.setText("  CONTACT US");
             button1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.personal_profile, 0);
             button2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.map, 0);
             button3.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.communicate, 0);
@@ -91,17 +93,31 @@ public class Homepage extends AppCompatActivity {
     }
 
     public void personalProfile(View view) {
-        DocumentReference userRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
-        userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                user = documentSnapshot.toObject(User.class);
-                Intent intent = new Intent(getApplicationContext(), PersonalProfile.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(this, "User not signed in", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DocumentReference userRef = db.collection("users").document(currentUser.getUid());
+        userRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (!documentSnapshot.exists()) {
+                Toast.makeText(this, "User data not found", Toast.LENGTH_SHORT).show();
+                return;
             }
+            User user = documentSnapshot.toObject(User.class);
+            if (user == null) {
+                Toast.makeText(this, "Failed to parse user data", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(getApplicationContext(), PersonalProfile.class);
+            intent.putExtra("user", user);
+            startActivity(intent);
+        }).addOnFailureListener(e -> {
+            Toast.makeText(this, "Failed to load user data", Toast.LENGTH_SHORT).show();
         });
     }
+
 
     public void map(View view) {
         Intent intent = new Intent(this, HomeMaps.class);
@@ -117,7 +133,7 @@ public class Homepage extends AppCompatActivity {
         getlocation();
         if(isDuoInstalled()){
         Intent duo = new Intent("com.google.android.apps.tachyon.action.CALL");
-        duo.setData(Uri.parse("tel: " + "0114696414"));
+        duo.setData(Uri.parse("tel: " + "1233456789"));
         duo.setPackage("com.google.android.apps.tachyon");
         startActivity(Intent.createChooser(duo, "Duo is not installed."));
         }
@@ -155,7 +171,7 @@ public class Homepage extends AppCompatActivity {
             if(loadData().equals("En"))
                 Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
             else
-                Toast.makeText(getBaseContext(), "إضغط مره اخرى للخروج", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Nhấp lại để thoát", Toast.LENGTH_SHORT).show();
         }
         pressedTime = System.currentTimeMillis();
     }
@@ -245,15 +261,15 @@ public class Homepage extends AppCompatActivity {
     public void saveData(String currentLanguage) {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(currentLanguage.equals("Ar"))
+        if(currentLanguage.equals("Vn"))
             editor.putString(LANGUAGE,"En");
         else
-            editor.putString(LANGUAGE,"Ar");
+            editor.putString(LANGUAGE,"Vn");
         editor.apply();
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Vn");
         return currentLanguage;
     }
 }

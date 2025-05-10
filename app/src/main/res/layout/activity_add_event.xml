@@ -14,7 +14,9 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
-        android:hint="اسم التذكير" />
+        android:hint="Event name"
+        android:minHeight="48dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/date_time"
@@ -23,7 +25,8 @@
         android:background="@drawable/button_border"
         android:foreground="?attr/selectableItemBackground"
         android:padding="8dp"
-        android:text="اختيار التاريخ والوقت" />
+        android:text="Date and Time"
+        tools:ignore="HardcodedText" />
 
 
     <Button
@@ -35,7 +38,8 @@
         android:background="#009688"
         android:onClick="addEvent"
         android:padding="8dp"
-        android:text="حفظ"
-        android:textColor="#000000" />
+        android:text="Submit"
+        android:textColor="#000000"
+        tools:ignore="HardcodedText" />
 
 </LinearLayout>

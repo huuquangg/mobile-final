@@ -47,7 +47,7 @@ public class FeedBack extends AppCompatActivity {
             textView1.setText(" Title");
             textView2.setText(" Description");
             textView3.setText("Or");
-            textView4.setText("Wosool\nFeedback");
+            textView4.setText("Helpers\nFeedback");
             Button button1=findViewById(R.id.send);
             Button button2=findViewById(R.id.callUs);
             button1.setAllCaps(false);
@@ -64,7 +64,7 @@ public class FeedBack extends AppCompatActivity {
                 Toast.makeText(this,"Name is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "الإسم فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bạn chưa nhập tên", Toast.LENGTH_SHORT).show();
             return;
         }
         if(title.getText().toString().trim().length() == 0) {
@@ -72,7 +72,7 @@ public class FeedBack extends AppCompatActivity {
                 Toast.makeText(this,"Title is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "العنوان فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tiêu đề đang trống", Toast.LENGTH_SHORT).show();
             return;
         }
         if(description.getText().toString().trim().length() == 0) {
@@ -80,7 +80,7 @@ public class FeedBack extends AppCompatActivity {
                 Toast.makeText(this,"Description is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "الوصف فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Mô tả đang trống", Toast.LENGTH_SHORT).show();
             return;
         }
                 /* ////// This store the feedback in the database
@@ -90,7 +90,7 @@ public class FeedBack extends AppCompatActivity {
          */
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"accessibility@ksu.edu.sa"});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"accessibility@uit.edu.vn"});
         intent.putExtra(Intent.EXTRA_SUBJECT, title.getText().toString());
         intent.putExtra(Intent.EXTRA_TEXT,description.getText().toString()+"\n"+name.getText().toString());
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -98,7 +98,7 @@ public class FeedBack extends AppCompatActivity {
         }
     }
     public void callUs(View view){
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "0114696414"));
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "123456789"));
         startActivity(intent);
         onBackPressed();
     }

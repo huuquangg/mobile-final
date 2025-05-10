@@ -42,7 +42,7 @@ public class AddEvent extends AppCompatActivity {
     int H=0;
     int M=0;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "Vn";
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,51 +77,70 @@ public class AddEvent extends AppCompatActivity {
             System.out.println(e.getMessage());
         }
     }
+    @SuppressLint("ScheduleExactAlarm")
     public void addEvent(View view){
         try {
-
-
-        if(Name.getText().toString().trim().length() == 0) {
-            if(loadData().equals("En")) {
-                Toast.makeText(this,"Name is empty", Toast.LENGTH_SHORT).show();
+            if(Name.getText().toString().trim().length() == 0) {
+                if(loadData().equals("En")) {
+                    Toast.makeText(this,"Name is empty", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(this, "Truờng Name đang trống", Toast.LENGTH_SHORT).show();
+                }
+                return;
             }
-            else
-                Toast.makeText(this, "الإسم فارغ", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        DocumentReference newEventRef = db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("Events").document();
-        DocumentReference userRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
-        userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+            String uid = FirebaseAuth.getInstance().getUid();
+            if (uid == null) {
+                Toast.makeText(this, "User is not signed in", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            DocumentReference newEventRef = db.collection("users").document(uid).collection("Events").document();
+            DocumentReference userRef = db.collection("users").document(uid);
+
+            userRef.get().addOnSuccessListener(documentSnapshot -> {
+                if (!documentSnapshot.exists()) {
+                    Toast.makeText(AddEvent.this, "User data not found", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 User user = documentSnapshot.toObject(User.class);
-                eventID=user.getNumOfEvent();
-                Event event = new Event(newEventRef.getId(),eventID,Name.getText().toString(),date);
-                userRef.update("numOfEvent",FieldValue.increment(1));
+                if (user == null) {
+                    Toast.makeText(AddEvent.this, "Failed to parse user data", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                eventID = user.getNumOfEvent();
+                Event event = new Event(newEventRef.getId(), eventID, Name.getText().toString(), date);
+                userRef.update("numOfEvent", FieldValue.increment(1));
                 newEventRef.set(event); // add to firebase
 
-                Date date1=new Date();
-                if(date.after(date1)) {
+                Date now = new Date();
+                if(date.after(now)) {
                     AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     Intent intent = new Intent(getApplication(), AlertReceiver.class);
                     intent.putExtra("name", event.getName());
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplication(), eventID, intent, PendingIntent.FLAG_IMMUTABLE);
                     alarmManager.setExact(AlarmManager.RTC_WAKEUP, event.getTime().getTime(), pendingIntent);
                 }
+
                 if(loadData().equals("En")) {
                     Toast.makeText(AddEvent.this,"Reminder has been added", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddEvent.this,"Lời nhắc nhỡ đã được tạo", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(AddEvent.this,"تم إضافة التذكير بنجاح", Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(AddEvent.this, Calendar.class);
                 startActivity(intent);
                 finish();
-            }
-        });
+            });
+
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e("AddEvent", "Exception in addEvent", e);
         }
     }
+
 
     private void handleTimeButton() {
         try {

@@ -103,7 +103,7 @@ public class SpeechAdapter extends RecyclerView.Adapter<SpeechAdapter.MyViewHold
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(activity);
-            mProgressDialog.setMessage("ارجوك انتظر");
+            mProgressDialog.setMessage("processing");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
             mProgressDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);

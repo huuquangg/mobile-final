@@ -11,10 +11,10 @@
         android:id="@+id/CalendarHeader"
         android:layout_width="match_parent"
         android:layout_height="83dp"
-        android:background="#16a3d9"
-        android:text="وصول\nالتقويم الجامعي"
+        android:background="#1388DC"
+        android:text="Calendar"
         android:textAlignment="center"
-        android:textColor="#5D4037"
+        android:textColor="#1D1616"
         android:textSize="30dp" />
     <CalendarView
         android:id="@+id/calendarView"
@@ -24,6 +24,6 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="قائمة العناصر" />
+        android:contentDescription="Events" />
 
 </LinearLayout>

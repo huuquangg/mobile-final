@@ -76,7 +76,7 @@ public class Conversation extends AppCompatActivity {
             if (loadData().equals("En")) {
                 Toast.makeText(this, "You are not connected to the internet", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "أنت غير متصل بالإنترنت", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Kết nối mạng không có sẵn", Toast.LENGTH_SHORT).show();
             }
         }
         if (!(ActivityCompat.checkSelfPermission(Conversation.this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)) {
@@ -90,7 +90,7 @@ public class Conversation extends AppCompatActivity {
         if (loadData().equals("En")) {
             mEditText.setHint("Please enter text");
         } else {
-            mEditText.setHint("يرجى إدخال نص");
+            mEditText.setHint("Vui lòng nhập văn bản");
         }
     }
 
@@ -108,18 +108,17 @@ public class Conversation extends AppCompatActivity {
             mSuggestionsArrayList.add("Give me your phone number please.");
             mSuggestionsArrayList.add("Show me the right way please.");
         } else {
-            mSuggestionsArrayList.add("مرحبا! أنا أصم ، ساعدني من فضلك.");
-            mSuggestionsArrayList.add("لا أستطيع سماعك. يمكننا التواصل عبر هذا التطبيق");
-            mSuggestionsArrayList.add("تحدث عبر الميكروفون للتواصل معي. انا أصم");
-            mSuggestionsArrayList.add("السلام عليكم كيف حالك؟");
-            mSuggestionsArrayList.add("وعليكم السلام ورحمة الله وبركاته");
-            mSuggestionsArrayList.add("شكراً لك");
-            mSuggestionsArrayList.add("هل تستطيع مساعدتي؟");
-            mSuggestionsArrayList.add("ماهو اسمك؟");
-            mSuggestionsArrayList.add("اعطني رقم هاتفك لو سمحت");
-            mSuggestionsArrayList.add("مع السلامة");
-            mSuggestionsArrayList.add("أرِني الطريق من فضلك");
-
+            mSuggestionsArrayList.add("Xin chào! Tôi bị khiếm thính, xin hãy giúp tôi.");
+            mSuggestionsArrayList.add("Tôi không thể nghe bạn. Chúng ta có thể giao tiếp qua ứng dụng này.");
+            mSuggestionsArrayList.add("Hãy nói qua micro để giao tiếp với tôi. Tôi bị điếc.");
+            mSuggestionsArrayList.add("Xin chào, bạn khỏe không?");
+            mSuggestionsArrayList.add("Chào bạn, chúc bạn bình an và được ban phước.");
+            mSuggestionsArrayList.add("Cảm ơn bạn.");
+            mSuggestionsArrayList.add("Bạn có thể giúp tôi không?");
+            mSuggestionsArrayList.add("Tên bạn là gì?");
+            mSuggestionsArrayList.add("Vui lòng cho tôi số điện thoại của bạn.");
+            mSuggestionsArrayList.add("Tạm biệt.");
+            mSuggestionsArrayList.add("Làm ơn chỉ đường giúp tôi.");
         }
     }
 
@@ -241,7 +240,7 @@ public class Conversation extends AppCompatActivity {
                     if (loadData().equals("En")) {
                         Toast.makeText(Conversation.this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(Conversation.this, "يرجى الاتصال بالإنترنت", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Conversation.this, "Vui lòng kết nối mạng", Toast.LENGTH_SHORT).show();
                     }
                 }
                 return true;

@@ -10,7 +10,9 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import com.mobile.app.R;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.MotionEvent;
 import android.view.View;
@@ -125,7 +127,7 @@ public class EventEdit extends AppCompatActivity {
             Toast.makeText(EventEdit.this,"Reminder updated", Toast.LENGTH_SHORT).show();
         }
         else
-            Toast.makeText(EventEdit.this,"تم تعديل التذكير بنجاح", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EventEdit.this,"Đã cập nhật sự kiện", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(EventEdit.this, Calendar.class);
         startActivity(intent);
         finish();
@@ -133,10 +135,19 @@ public class EventEdit extends AppCompatActivity {
 
     private void startAlarm(Event event){
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (!alarmManager.canScheduleExactAlarms()) {
+                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                startActivity(intent);
+                return;
+            }
+        }
+
         Intent intent = new Intent(getApplication(), AlertReceiver.class);
-        intent.putExtra("name",event.getName());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplication(),event.getEventID(), intent, PendingIntent.FLAG_IMMUTABLE);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP,event.getTime().getTime(), pendingIntent);
+        intent.putExtra("name", event.getName());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplication(), event.getEventID(), intent, PendingIntent.FLAG_IMMUTABLE);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, event.getTime().getTime(), pendingIntent);
     }
 
     private void cancelAlarm(int id) {
@@ -154,12 +165,12 @@ public class EventEdit extends AppCompatActivity {
             Toast.makeText(this,"Reminder has been removed", Toast.LENGTH_SHORT).show();
         }
         else
-            Toast.makeText(EventEdit.this,"تم إزالة التذكير بنجاح", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EventEdit.this,"Sự kiện đã được xóa", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Vn");
         return currentLanguage;
     }
     public void onBackPressed() {

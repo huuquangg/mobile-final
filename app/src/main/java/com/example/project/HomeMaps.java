@@ -69,7 +69,7 @@ public class HomeMaps extends AppCompatActivity {
     private boolean isExplorerEnabled;
     private FusedLocationProviderClient fusedLocationClient;
     public static Location mLastKnownLocation;
-    private String LANGUAGE = "Ar";
+    private String LANGUAGE = "En";
 
 
     // helper attributes
@@ -120,18 +120,18 @@ public class HomeMaps extends AppCompatActivity {
             Button myLocationBtn = findViewById(R.id.myLocationBtn);
             Button SearchButton = findViewById(R.id.SearchButton);
 
-            restaurantBtn.setText("المطاعم");
-            HospitalBtn.setText("المستشفيات");
-            parkingBtn.setText("المواقف");
-            CollegesBtn.setText("الكليات");
-            mosqueBtn.setText("المساجد");
-            cafeBtn.setText("المقاهي");
-            atmBtn.setText("الصرافات الآلية");
-            LibraryBtn.setText("المكتبات");
+            restaurantBtn.setText("Restaurants");
+            HospitalBtn.setText("Hospitals");
+            parkingBtn.setText("Parking");
+            CollegesBtn.setText("Colleges");
+            mosqueBtn.setText("Mosques");
+            cafeBtn.setText("Cafes");
+            atmBtn.setText("ATMs");
+            LibraryBtn.setText("Libraries");
 
-            expButton.setText("المستكشف");
-            myLocationBtn.setText("مكاني");
-            SearchButton.setText("البحث");
+            expButton.setText("Explorer");
+            myLocationBtn.setText("My Location");
+            SearchButton.setText("Search");
         }
 
 

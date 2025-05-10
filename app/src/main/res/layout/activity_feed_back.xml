@@ -12,11 +12,12 @@
         android:id="@+id/feedbackHeader"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#16a3d9"
-        android:text="وصول\nتواصل معنا"
+        android:background="#1388DC"
+        android:text="Feedback for us"
         android:textAlignment="center"
         android:textColor="#5D4037"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <TextView
         android:id="@+id/textViewName"
@@ -24,10 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@android:color/transparent"
-        android:text=" الاسم"
+        android:text=" User"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/name"
@@ -36,9 +38,11 @@
         android:layout_marginHorizontal="6dp"
         android:layout_marginBottom="10dp"
         android:background="#FFFFFF"
-        android:hint="الاسم الكامل"
+        android:hint="Full name"
         android:inputType="textPersonName"
-        android:textSize="30sp" />
+        android:minHeight="48dp"
+        android:textSize="30sp"
+        tools:ignore="HardcodedText" />
 
 
     <TextView
@@ -47,9 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@android:color/transparent"
-        android:text=" العنوان"
+        android:text=" Address"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/title"
@@ -58,8 +63,9 @@
         android:layout_marginHorizontal="6dp"
         android:layout_marginBottom="10dp"
         android:background="#FFFFFF"
-        android:hint="عنوان المشروع"
+        android:hint="@string/location"
         android:inputType="text"
+        android:minHeight="48dp"
         android:textSize="30sp" />
 
 
@@ -69,9 +75,10 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@android:color/transparent"
-        android:text=" الوصف"
+        android:text=" Description"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <EditText
         android:id="@+id/description"
@@ -81,9 +88,10 @@
         android:layout_marginBottom="10dp"
         android:background="#FFFFFF"
         android:gravity="start|top"
-        android:hint="وصف المشروع"
+        android:hint=" Detail description"
         android:inputType="textMultiLine"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:textColor="@color/white"
@@ -95,16 +103,18 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/ripple"
         android:onClick="submitForm"
-        android:text="إرسال" />
+        android:text="Submit"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="أو"
+        android:text="or"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        tools:ignore="HardcodedText,SpUsage" />
 
     <Button
         android:id="@+id/callUs"
@@ -118,9 +128,10 @@
         android:minWidth="48dp"
         android:paddingVertical="12dp"
         android:onClick="callUs"
-        android:text="إتصل بنا"
+        android:text="Contact us"
         android:textColor="@color/white"
-        android:contentDescription="زر الاتصال بنا" />
+        android:contentDescription="Contact Us Button"
+        tools:ignore="HardcodedText" />
 
 
 </LinearLayout>

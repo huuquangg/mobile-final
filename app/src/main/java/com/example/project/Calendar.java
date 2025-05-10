@@ -27,7 +27,7 @@ public class Calendar extends AppCompatActivity {
     private CollectionReference eventsRef = db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("Events");
     private EventAdapter adapter;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "Vn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class Calendar extends AppCompatActivity {
         setUpRecyclerView();
         if(loadData().equals("En")){
             TextView textView=findViewById(R.id.CalendarHeader);
-            textView.setText("Wosool\nCalendar");
+            textView.setText("Helpers\nCalendar");
             String languageToLoad  = "en"; // your language
             Locale locale = new Locale(languageToLoad);
             Locale.setDefault(locale);

@@ -21,14 +21,14 @@ public class AlertReceiver extends BroadcastReceiver {
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("Wosool", "Wosool", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel("Helpers", "Helpers", NotificationManager.IMPORTANCE_DEFAULT);
             manager.createNotificationChannel(channel);
         }
         Intent intent1=new Intent(context,Homepage.class);
         PendingIntent pendingIntent=PendingIntent.getActivity(context,reqID(System.currentTimeMillis()),intent1, PendingIntent.FLAG_IMMUTABLE);
         Uri soundUri = RingtoneManager
                 .getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Wosool")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Helpers")
                 .setContentTitle(intent.getStringExtra("name"))
                 .setContentText("time is up")
                 .setContentIntent(pendingIntent)

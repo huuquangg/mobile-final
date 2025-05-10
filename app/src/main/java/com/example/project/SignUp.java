@@ -29,7 +29,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-//import com.rilixtech.widget.countrycodepicker.Country;
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker;
 import com.mobile.app.R;
 
@@ -97,7 +96,7 @@ public class SignUp extends AppCompatActivity {
                 Toast.makeText(this,"Password less then 6", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "كلمة المرور اقل من 6", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Mật khẩu ít hơn 6 kí tự", Toast.LENGTH_SHORT).show();
             return;
         }
         if(name.getText().toString().trim().length() ==0) {
@@ -105,7 +104,7 @@ public class SignUp extends AppCompatActivity {
                 Toast.makeText(this,"Name is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "الأسم فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tên đăng nhập trống", Toast.LENGTH_SHORT).show();
             return;
         }
         if(phoneN.getText().toString().trim().length() ==0) {
@@ -113,14 +112,16 @@ public class SignUp extends AppCompatActivity {
                 Toast.makeText(this,"Phone number is empty", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "رقم الجوال فارغ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Số Điên thoại chưa được nhập", Toast.LENGTH_SHORT).show();
             return;
         }
         loadingDialog.startLoadingDialog();
+        System.out.println(emailEditText.getText().toString());
         mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        System.out.println(task.getResult().getUser());
                         if (task.isSuccessful()) {
                             // Sign in success
                             User user=new User(name.getText().toString(),emailEditText.getText().toString(),codeC+phoneN.getText().toString(),0,"","-","-",15,"ذكر");
@@ -136,7 +137,7 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this,"Signed up", Toast.LENGTH_SHORT).show();
                             }
                             else
-                                Toast.makeText(SignUp.this, "تم التسجيل بنجاح", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                             loadingDialog.dismissDialog();
                             Intent intent = new Intent(SignUp.this, Homepage.class);
                             startActivity(intent);
@@ -148,7 +149,7 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this,"Email is wrong or used", Toast.LENGTH_SHORT).show();
                             }
                             else
-                                Toast.makeText(SignUp.this,"البريد الالكتروني مستعمل او خاطئ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignUp.this,"Email đang được sử dụng hoặc sai", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -40,7 +40,7 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
     private String DegreeOfDisability="";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "En";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +53,9 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
         PhoneNumber = findViewById(R.id.Phone_Number);
         DisabilityType = findViewById(R.id.DisabilityType);
         Age = findViewById(R.id.ageEditText);
-        String[] typeOfDisability={"-","سمعية","بصرية","حركية","غير ذلك"};
-        String[] degreeOfDisability={"-","شديدة","متوسطة","خفيفة"};
-        String[] genders={"ذكر","أنثى"};
+        String[] typeOfDisability={"-","Thính giác ","Thị giác","Vận động","Khác"};
+        String[] degreeOfDisability={"-","Nặng","Trung Bình","Nhẹ"};
+        String[] genders={"Nam","Nữ"};
 
 
         if(loadData().equals("En")){
@@ -123,15 +123,15 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
                 case "-":
                     spinner1.setSelection(0);
                     break;
-                case "سمعية":
+                case "Thính giác":
                 case "Hearing":
                     spinner1.setSelection(1);
                     break;
-                case "بصرية":
+                case "Thị giác":
                 case "Vision":
                     spinner1.setSelection(2);
                     break;
-                case "حركية":
+                case "Tê Liệt":
                 case "Movement":
                     spinner1.setSelection(3);
                     break;
@@ -147,22 +147,22 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
                 case "-":
                     spinner2.setSelection(0);
                     break;
-                case "شديدة":
+                case "Nặng":
                 case "Strong":
                     spinner2.setSelection(1);
                     break;
-                case "متوسطة":
+                case "Trung bình":
                 case "Average":
                     spinner2.setSelection(2);
                     break;
-                case "خفيفة":
+                case "Nhẹ":
                 case "Little":
                     spinner2.setSelection(3);
                     break;
             }
         }
         if(user.getGender()!=null){
-            if(user.getGender().equals("ذكر")||user.getGender().equals("Male")){
+            if(user.getGender().equals("Nam")||user.getGender().equals("Male")){
                 spinner3.setSelection(0);
             }
             else
@@ -187,7 +187,7 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()){
             case R.id.spinner1:
-                if(parent.getItemAtPosition(position).toString().equals("غير ذلك")||parent.getItemAtPosition(position).toString().equals("Other")){
+                if(parent.getItemAtPosition(position).toString().equals("Khác")||parent.getItemAtPosition(position).toString().equals("Other")){
                     DisabilityType.setVisibility(View.VISIBLE);
                     TypeOfDisability="";
                 }
@@ -237,12 +237,12 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
             Toast.makeText(this,"Saved", Toast.LENGTH_SHORT).show();
         }
         else
-            Toast.makeText(this,"تم الحفظ بنجاح", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Đã lưu thành công", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "En");
         return currentLanguage;
     }
 }

@@ -13,10 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="83dp"
         android:background="#16a3d9"
-        android:text="وصول\nالملف الشخصي"
+        android:text="Profile"
         android:textAlignment="center"
         android:textColor="#5D4037"
-        android:textSize="30dp" />
+        android:textSize="30sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:labelFor="@id/name"
@@ -26,9 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@android:color/transparent"
-        android:text=" الاسم"
+        android:text="  Name"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/name"
@@ -40,7 +42,7 @@
         android:background="#FFFFFF"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:labelFor="@id/university_ID"
@@ -50,9 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@android:color/transparent"
-        android:text=" الرقم الجامعي/ أو الرقم الوظيفي"
+        android:text="  Identified number/Student Code"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/university_ID"
@@ -64,7 +67,7 @@
         android:background="#FFFFFF"
         android:inputType="number"
         android:minHeight="48dp"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:labelFor="@id/Phone_Number"
@@ -74,9 +77,10 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@android:color/transparent"
-        android:text=" رقم الجوال"
+        android:text="  Phone number"
         android:textColor="#FFFFFF"
-        android:textSize="20dp" />
+        android:textSize="20sp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/Phone_Number"
@@ -88,7 +92,7 @@
         android:background="#FFFFFF"
         android:inputType="phone"
         android:minHeight="48dp"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:labelFor="@id/spinner1"
@@ -100,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:text=" نوع الاعاقة"
+        android:text="Type of disability"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
 
@@ -136,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:text=" درجة الاعاقة"
+        android:text="Degree of disability"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
     <Spinner
@@ -157,7 +161,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:background="@android:color/transparent"
-        android:text=" الجنس"
+        android:text=" Gender"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
     <Spinner
@@ -179,7 +183,7 @@
         android:layout_below="@id/spinner2"
         android:layout_marginLeft="50dp"
         android:background="@android:color/transparent"
-        android:text=" العمر"
+        android:text=" Age"
         android:textColor="#FFFFFF"
         android:textSize="20dp" />
 
@@ -208,5 +212,5 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ripple"
         android:onClick="save"
-        android:text="حفظ" />
+        android:text="Submit" />
 </RelativeLayout>

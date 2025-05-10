@@ -83,7 +83,7 @@ public class NoLogin extends AppCompatActivity {
     public void assistanceVideoCall(View view) {
         getlocation();
         Intent duo = new Intent("com.google.android.apps.tachyon.action.CALL");
-        duo.setData(Uri.parse("tel: " + "0114696414"));
+        duo.setData(Uri.parse("tel: " + "123456789"));
         duo.setPackage("com.google.android.apps.tachyon");
         startActivity(Intent.createChooser(duo, "Duo is not installed."));
     }
@@ -110,7 +110,7 @@ public class NoLogin extends AppCompatActivity {
             if(loadData().equals("En"))
                 Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
             else
-                Toast.makeText(getBaseContext(), "إضغط مره اخرى للخروج", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Nhấn lại để thoát", Toast.LENGTH_SHORT).show();
         }
         pressedTime = System.currentTimeMillis();
     }

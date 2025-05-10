@@ -28,7 +28,7 @@ public class EventAdapter extends FirestoreRecyclerAdapter<Event,EventAdapter.Ev
     private OnItemClickListener listener;
     private Context mContext;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "Vn";
     public void setContext(Context mContext) {
         this.mContext = mContext;
     }
@@ -52,21 +52,21 @@ public class EventAdapter extends FirestoreRecyclerAdapter<Event,EventAdapter.Ev
                     holder.daysLeft.setText("Less then a hour");
                 }
                 else
-                    holder.daysLeft.setText("أقل من ساعة");
+                    holder.daysLeft.setText("Ít hơn 1 tiếng");
             }
             else if(remainingTime<=86400000){
                 if(loadData().equals("En")){
                     holder.daysLeft.setText("("+String.valueOf(remainingTime/(1000*60*60))+" Hours"+")");
                 }
                 else
-                    holder.daysLeft.setText("("+String.valueOf(remainingTime/(1000*60*60))+" ساعات"+")");
+                    holder.daysLeft.setText("("+String.valueOf(remainingTime/(1000*60*60))+" Giờ"+")");
             }
             else {
                 if(loadData().equals("En")){
                     holder.daysLeft.setText("("+String.valueOf(remainingTime/(1000*60*60*24))+" days "+String.valueOf((remainingTime%(1000*60*60*24))/(1000*60*60))+" hours"+")");
                 }
                 else
-                    holder.daysLeft.setText("("+String.valueOf(remainingTime/(1000*60*60*24))+" ايام "+String.valueOf((remainingTime%(1000*60*60*24))/(1000*60*60))+" ساعات"+")");
+                    holder.daysLeft.setText("("+String.valueOf(remainingTime/(1000*60*60*24))+" ngày "+String.valueOf((remainingTime%(1000*60*60*24))/(1000*60*60))+" giờ"+")");
             }
 
     }
@@ -118,7 +118,7 @@ public class EventAdapter extends FirestoreRecyclerAdapter<Event,EventAdapter.Ev
     }
     public String loadData() {
         SharedPreferences sharedPreferences =  mContext.getSharedPreferences(SHARED_PREFS, 0);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Vn");
         return currentLanguage;
     }
 }
