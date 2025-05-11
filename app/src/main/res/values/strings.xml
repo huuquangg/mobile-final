@@ -9,7 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="google_maps_api">AIzaSyDys8tYDUjpUnzGHt5cQkGcIPv8ZYYzhyY</string>
+    <string name="google_maps_api">AIzaSyAPHzvsopJtGbRNLe9_h4NYIKg41d6M5Q0</string>
     <string name="goTo">Goto</string>
     <string name="Building">UIT Building</string>
     <string name="hint">Please input your text</string>

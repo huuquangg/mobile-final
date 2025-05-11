@@ -37,7 +37,7 @@ public class NoLogin extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FusedLocationProviderClient fusedLocationProviderClient;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "En";
     private long pressedTime;
 
 
@@ -47,7 +47,7 @@ public class NoLogin extends AppCompatActivity {
         getSupportActionBar().hide();
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        if(loadData().equals("En")) {
+        if(loadData().equals("Vn")) {
             Button button2=findViewById(R.id.b2);
             Button button3=findViewById(R.id.b3);
             Button button4=findViewById(R.id.b4);
@@ -56,10 +56,10 @@ public class NoLogin extends AppCompatActivity {
             button3.setAllCaps(false);
             button4.setAllCaps(false);
             button6.setAllCaps(false);
-            button2.setText("  Maps");
-            button3.setText("  Dialog");
-            button4.setText("  Emergency call");
-            button6.setText("  Contact Us");
+            button2.setText("  BẢN ĐỒ");
+            button3.setText("  GIAO TIẾP");
+            button4.setText("  CUỘC GỌI KHẨN CẤP");
+            button6.setText("  LIÊN HỆ");
 
 
             button2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.map, 0);
@@ -188,15 +188,15 @@ public class NoLogin extends AppCompatActivity {
     public void saveData(String currentLanguage) {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(currentLanguage.equals("Ar"))
+        if(currentLanguage.equals("Vn"))
             editor.putString(LANGUAGE,"En");
         else
-            editor.putString(LANGUAGE,"Ar");
+            editor.putString(LANGUAGE,"Vn");
         editor.apply();
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "En");
         return currentLanguage;
     }
 }

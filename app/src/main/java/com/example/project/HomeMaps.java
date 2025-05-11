@@ -222,6 +222,7 @@ public class HomeMaps extends AppCompatActivity {
         }
         else{
             String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+            System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
             cancel = false;
             mTaskRunning = true;
 
@@ -347,7 +348,7 @@ public class HomeMaps extends AppCompatActivity {
         }
         isExplorerEnabled = false;
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "restaurant" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
-
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
@@ -368,6 +369,7 @@ public class HomeMaps extends AppCompatActivity {
         isExplorerEnabled = false;
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "hospital" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
@@ -388,6 +390,7 @@ public class HomeMaps extends AppCompatActivity {
         isExplorerEnabled = false;
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "parking" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
@@ -409,6 +412,7 @@ public class HomeMaps extends AppCompatActivity {
         isExplorerEnabled = false;
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "university" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
@@ -430,6 +434,7 @@ public class HomeMaps extends AppCompatActivity {
         isExplorerEnabled = false;
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "mosque" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
@@ -451,6 +456,7 @@ public class HomeMaps extends AppCompatActivity {
 
         isExplorerEnabled = false;
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "cafe" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
@@ -470,6 +476,8 @@ public class HomeMaps extends AppCompatActivity {
 
         isExplorerEnabled = false;
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "atm" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
         else
@@ -487,6 +495,8 @@ public class HomeMaps extends AppCompatActivity {
         }
         isExplorerEnabled = false;
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" + "location=" + mLastKnownLocation.getLatitude() + "," + mLastKnownLocation.getLongitude() + "&rankby=distance" + "&type=" + "library" + "&sensor=true" + "&key=" + getResources().getString(R.string.google_maps_api);
+        System.out.println("Urlllllllllllllllllllllllllllllllllllllll: "+url);
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
             new placeTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
         else
@@ -579,7 +589,7 @@ public class HomeMaps extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-return hashMaps;
+            return hashMaps;
         }
 
         @Override
@@ -602,20 +612,10 @@ return hashMaps;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-
-
                 fetchNearbyPlacesExplorer(hashMaps);
-
-
-
             return hashMaps;
         }
-
-
     }
-
-
 
 
     @Override
@@ -630,10 +630,6 @@ return hashMaps;
 
         super.onDestroy();
     }
-
-
-
-
 
 
     @Override
@@ -682,11 +678,6 @@ return hashMaps;
 
         @Override
         protected Void doInBackground(Void... voids) {
-
-
-
-
-
             return null;
         }
 
@@ -843,7 +834,7 @@ return hashMaps;
             typeOfPlace =  myString.substring(0, 1).toUpperCase() + myString.substring(1).toLowerCase();
 
 
-            // set the type to identify the type of the Action Bar in PlacesList Acitivity
+            // set the type to identify the type of the Action Bar in PlacesList Activity
             if (typeOfPlace.equals("Restaurant"))
                 typeActionBar = 0;
             else if (typeOfPlace.equals("Hospital"))
@@ -861,49 +852,47 @@ return hashMaps;
             else if (typeOfPlace.equals("Library"))
                 typeActionBar = 7;
 
-
-
-            // translation
-            if (loadData().equals("Ar")){
+// translation
+            if (loadData().equals("Vn")) {
+                // direction translation
                 if(directionNearby.equals("North"))
-                    directionNearby = "الشمال";
+                    directionNearby = "Bắc";
                 else if(directionNearby.equals("Northeast"))
-                    directionNearby = "الشمال الشرقي";
+                    directionNearby = "Đông Bắc";
                 else if(directionNearby.equals("East"))
-                    directionNearby = "الشرق";
+                    directionNearby = "Đông";
                 else if(directionNearby.equals("Southeast"))
-                    directionNearby = "الجنوب الشرقي";
+                    directionNearby = "Đông Nam";
                 else if(directionNearby.equals("South"))
-                    directionNearby = "الجنوب";
+                    directionNearby = "Nam";
                 else if(directionNearby.equals("Southwest"))
-                    directionNearby = "الجنوب الغربي";
+                    directionNearby = "Tây Nam";
                 else if(directionNearby.equals("West"))
-                    directionNearby = "الغرب";
+                    directionNearby = "Tây";
                 else if(directionNearby.equals("Northwest"))
-                    directionNearby = "الشمال الغربي";
+                    directionNearby = "Tây Bắc";
 
+                fullDistanceDirection = dis + " mét về hướng " + directionNearby;
 
-                fullDistanceDirection = dis + " متر الى " + directionNearby;
-
+                // place type translation
                 if (typeOfPlace.equals("Restaurant"))
-                    typeOfPlace = "مطعم" ;
+                    typeOfPlace = "Nhà hàng";
                 else if (typeOfPlace.equals("Hospital"))
-                    typeOfPlace = "مستشفى" ;
+                    typeOfPlace = "Bệnh viện";
                 else if (typeOfPlace.equals("Parking"))
-                    typeOfPlace = "موقف" ;
+                    typeOfPlace = "Bãi đỗ xe";
                 else if (typeOfPlace.equals("University"))
-                    typeOfPlace = "جامعة" ;
+                    typeOfPlace = "Trường đại học";
                 else if (typeOfPlace.equals("Mosque"))
-                    typeOfPlace = "مسجد" ;
+                    typeOfPlace = "Nhà thờ ";
                 else if (typeOfPlace.equals("Cafe"))
-                    typeOfPlace = "مقهى" ;
+                    typeOfPlace = "Quán cà phê";
                 else if (typeOfPlace.equals("Atm"))
-                    typeOfPlace = "صراف آلي" ;
+                    typeOfPlace = "Máy ATM";
                 else if (typeOfPlace.equals("Library"))
-                    typeOfPlace = "مكتبة" ;
-
-
+                    typeOfPlace = "Thư viện";
             }
+
             else {
 
                 fullDistanceDirection =  dis + " meters to the " + directionNearby;
@@ -938,25 +927,18 @@ return hashMaps;
     }
 
     public void fetchNearbyPlacesExplorer(List<HashMap<String, String>> hashMaps){
-
-
-
         for (int i = 0; i < hashMaps.size(); i++) {
             if(isExplorerEnabled== false){
                 break;
-
             }
             if(cancel)
                 break;
-
-
 
             // retreive data from parsing
             HashMap<String, String> hashMapList = hashMaps.get(i);
             double lat = Double.parseDouble(hashMapList.get("lat"));
             double lng = Double.parseDouble(hashMapList.get("lng"));
             String name = hashMapList.get("name");
-
 
             // compute distance to the place
             LatLng mlast = new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
@@ -965,8 +947,6 @@ return hashMaps;
             if (dis > 100) {
                 break;
             }
-
-
             // compute the direction
             Location destinationLoc = new Location("service Provider");
             destinationLoc.setLatitude(lat); //kaaba latitude setting
@@ -977,37 +957,31 @@ return hashMaps;
             String direction = ComputeDirection(degree);
 
             // translation
-            if (loadData().equals("Ar")) {
+            if (loadData().equals("Vn")) {
                 if (direction.equals("North"))
-                    direction = "الشمال";
+                    direction = "Bắc";
                 else if (direction.equals("Northeast"))
-                    direction = "الشمال الشرقي";
+                    direction = "Đông Bắc";
                 else if (direction.equals("East"))
-                    direction = "الشرق";
+                    direction = "Đông";
                 else if (direction.equals("Southeast"))
-                    direction = "الجنوب الشرقي";
+                    direction = "Đông Nam";
                 else if (direction.equals("South"))
-                    direction = "الجنوب";
+                    direction = "Nam";
                 else if (direction.equals("Southwest"))
-                    direction = "الجنوب الغربي";
+                    direction = "Tây Nam";
                 else if (direction.equals("West"))
-                    direction = "الغرب";
+                    direction = "Tây";
                 else if (direction.equals("Northwest"))
-                    direction = "الشمال الغربي";
+                    direction = "Tây Bắc";
 
-                fullDistanceDirection =  " " + dis + " متر الى " + direction;
+                fullDistanceDirection =  " " + dis + " mét về hướng " + direction;
 
-
-                // display explorer content on screen
                 runOnUiThread(new Runnable() {
-
                     public void run() {
                         ContentofExplorer.setText(name + "\n" + fullDistanceDirection);
                     }
-
                 });
-
-                // i used combinations to english and arabic text to speech to eliminate the problem of having a place name in both english and arabic languages
 
                 ConnectivityManager cm = (ConnectivityManager) HomeMaps.this.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo netInfo = cm.getActiveNetworkInfo();
@@ -1016,25 +990,16 @@ return hashMaps;
                 sp = name  + fullDistanceDirection;
 
                 if (isOnline) {
-
                     try {
                         fetchJsonResponse(sp);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-
                 } else {
-                    Log.e("TAG" , "Arabic text to Speech is not Working");
+                    Log.e("TAG", "Vietnamese text to Speech is not Working");
                 }
 
-                if(isExplorerEnabled== false){
-                    break;
-
-
-                }
-                if(cancel)
-                    break;
+                if (!isExplorerEnabled || cancel) break;
 
                 try {
                     Thread.sleep(delayAfterName);
@@ -1042,14 +1007,7 @@ return hashMaps;
                     e.printStackTrace();
                 }
 
-                if(isExplorerEnabled== false){
-                    break;
-
-                }
-                if(cancel)
-                    break;
-
-
+                if (!isExplorerEnabled || cancel) break;
             }
 
             // english language

@@ -22,7 +22,7 @@ public class FeedBack extends AppCompatActivity {
     private EditText title;
     private EditText description;
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String LANGUAGE = "Ar";
+    public static final String LANGUAGE = "Vn";
     /* ////// This store the feedback in the database
 
     private Suggestion suggestion;
@@ -104,7 +104,7 @@ public class FeedBack extends AppCompatActivity {
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Ar");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Vn");
         return currentLanguage;
     }
 }

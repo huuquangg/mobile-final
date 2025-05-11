@@ -100,7 +100,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCUjgEot4fYuOT5ietOLGWRp1vBfDl9Qa4" />
+            android:value="AIzaSyAPHzvsopJtGbRNLe9_h4NYIKg41d6M5Q0" />
 
         <activity
             android:name="com.example.project.SearchPlaces"

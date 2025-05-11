@@ -69,7 +69,7 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
             genders[0]="Male";
             genders[1]="Female";
             TextView textView=findViewById(R.id.header);
-            textView.setText("Wosool\nPersonal Profile");
+            textView.setText("Helpers\nPersonal Profile");
             TextView textView1=findViewById(R.id.textName);
             textView1.setText(" Name");
             TextView textView2=findViewById(R.id.EditTextID);
@@ -242,7 +242,7 @@ public class PersonalProfile extends AppCompatActivity implements AdapterView.On
     }
     public String loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        String currentLanguage = sharedPreferences.getString(LANGUAGE, "En");
+        String currentLanguage = sharedPreferences.getString(LANGUAGE, "Vn");
         return currentLanguage;
     }
 }
